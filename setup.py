@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='my_tools',
-      version='0.1.1',
+      version='0.1.4',
       description='My own short tools',
       url='https://github.com/Spica12/create-file-for-exsercises.git',
       author='Vitalii Savenko',

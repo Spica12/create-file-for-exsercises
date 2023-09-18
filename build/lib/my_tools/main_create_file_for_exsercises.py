@@ -2,7 +2,7 @@ from pathlib import Path
 import os
 
 # Tasks:
-# | | Add func check dir, if not - create dir
+# |X| Add func check dir, if not - create dir
 # |X| Create own packet with pip
 
 
@@ -10,6 +10,7 @@ TYPE_FILE = '.py'
 
 
 TYPES = {
+    0: 'Notes',
     1: 'theory',
     2: 'practice',
     3: 'you_theory',
@@ -21,6 +22,7 @@ TYPES = {
 
 
 FOLDERS = {
+    0: '0_Notes',
     1: '1_Theory',
     2: '2_Practice',
     3: '3_Youtube_theory',
@@ -69,12 +71,12 @@ def get_parent_folder():
 
 
 def get_number_next_file_in_folder(path):
-    number = 0
+    number = 1
 
-    for number, file in enumerate(path.iterdir()):
-        pass
+    for _ in path.iterdir():
+        number += 1
 
-    return number + 1
+    return number
 
 
 def enter_explanation_of_file():
@@ -102,18 +104,18 @@ def main():
     user_input_modul = enter_number_of_modul()
     user_input_type = choose_type()
     user_input_explanation = enter_explanation_of_file()
+    
+    # Створюємо папку, якщо її не існує
+    path_with_folder = Path(f'{my_path}\{FOLDERS[user_input_type]}')
+    path_with_folder.mkdir(parents=True, exist_ok=True) 
 
     # Отримуємо кількість файлів в папці, щоб присвоїти номер наступного файлу
-    next_number_file = get_number_next_file_in_folder(my_path)
+    next_number_file = get_number_next_file_in_folder(path_with_folder)
 
     file_name = '_'.join((user_input_modul, 
                       TYPES[user_input_type], 
                       str(next_number_file), 
                       user_input_explanation))
-    
-    # Створюємо папку, якщо її не існує
-    path_with_folder = Path(f'{my_path}\{FOLDERS[user_input_type]}')
-    path_with_folder.mkdir(parents=True, exist_ok=True) 
     
     path_of_new_file = Path(f'{path_with_folder}\{file_name}{TYPE_FILE}')
 
