@@ -1,0 +1,8 @@
+setup.py
+my_tools/__init__.py
+my_tools/main_create_file_for_exsercises.py
+my_tools.egg-info/PKG-INFO
+my_tools.egg-info/SOURCES.txt
+my_tools.egg-info/dependency_links.txt
+my_tools.egg-info/entry_points.txt
+my_tools.egg-info/top_level.txt
