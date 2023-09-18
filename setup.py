@@ -1,9 +1,9 @@
 from setuptools import setup
 
 setup(name='my_tools',
-      version='0.0.2',
+      version='0.0.3',
       description='My own short tools',
-    #   url='http://github.com/dummy_user/useful',
+      url='https://github.com/Spica12/create-file-for-exsercises.git',
       author='Vitalii Savenko',
     #   author_email='flyingcircus@example.com',
       license='MIT',

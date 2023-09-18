@@ -3,7 +3,7 @@ import os
 
 # Tasks:
 # | | Add func check dir, if not - create dir
-# | | Create own packet with pip
+# |X| Create own packet with pip
 
 
 TYPE_FILE = '.py'
@@ -15,7 +15,8 @@ TYPES = {
     3: 'you_theory',
     4: 'you_practice',
     5: 'you_add',
-    6: 'autocheck'
+    6: 'autocheck',
+    7: 'own_exe'
 }
 
 
