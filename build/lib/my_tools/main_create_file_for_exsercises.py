@@ -20,6 +20,17 @@ TYPES = {
 }
 
 
+FOLDERS = {
+    1: '1_Theory',
+    2: '2_Practice',
+    3: '3_Youtube_theory',
+    4: '4_Youtube_practice',
+    5: '5_Youtube_add',
+    6: '6_Autocheck',
+    7: '7_Own_exersice'
+}
+
+
 def enter_number_of_modul():
 
     while True:
@@ -58,6 +69,7 @@ def get_parent_folder():
 
 
 def get_number_next_file_in_folder(path):
+    number = 0
 
     for number, file in enumerate(path.iterdir()):
         pass
@@ -78,6 +90,9 @@ def enter_explanation_of_file():
     return user_input
 
 
+
+
+
 def main():
 
     # Отриммуємо шлях до папки де треба зробити шаблон
@@ -96,8 +111,11 @@ def main():
                       str(next_number_file), 
                       user_input_explanation))
     
-    path_of_new_file = os.path.abspath(f'{my_path}\{file_name}{TYPE_FILE}')
-    print(file_name)
+    # Створюємо папку, якщо її не існує
+    path_with_folder = Path(f'{my_path}\{FOLDERS[user_input_type]}')
+    path_with_folder.mkdir(parents=True, exist_ok=True) 
+    
+    path_of_new_file = Path(f'{path_with_folder}\{file_name}{TYPE_FILE}')
 
     with open(path_of_new_file, 'w') as file:
         print(f'File: {file_name} created. Path: {path_of_new_file}')
