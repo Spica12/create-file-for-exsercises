@@ -92,7 +92,8 @@ def enter_explanation_of_file():
     return user_input
 
 
-
+def normal_number(number: str) -> str:
+    return f'{number}' if int(number) > 9 else f'0{number}'
 
 
 def main():
@@ -101,16 +102,19 @@ def main():
     my_path = get_parent_folder()
 
     # Отримуємо необхідну інформацію від користувача
-    user_input_modul = enter_number_of_modul()
+    user_input_modul = normal_number(enter_number_of_modul())
     user_input_type = choose_type()
     user_input_explanation = enter_explanation_of_file()
+
+
+    folder_name = '_'.join(('Modul', user_input_modul))
     
     # Створюємо папку, якщо її не існує
-    path_with_folder = Path(f'{my_path}\{FOLDERS[user_input_type]}')
+    path_with_folder = Path(f'{my_path}\{folder_name}\{FOLDERS[user_input_type]}')
     path_with_folder.mkdir(parents=True, exist_ok=True) 
 
     # Отримуємо кількість файлів в папці, щоб присвоїти номер наступного файлу
-    next_number_file = get_number_next_file_in_folder(path_with_folder)
+    next_number_file = normal_number(get_number_next_file_in_folder(path_with_folder))
 
     file_name = '_'.join((user_input_modul, 
                       TYPES[user_input_type], 
