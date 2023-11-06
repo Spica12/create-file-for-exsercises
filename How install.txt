@@ -2,3 +2,8 @@
 2. cd dist
 3. Install - pip install <name>.whl
    Upgrade - pip install -U <name>.whl
+
+
+
+Linux
+1. pip3 install <name>.whl
